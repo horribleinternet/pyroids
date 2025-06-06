@@ -36,6 +36,10 @@ def main():
             if (player.collide(roid)):
                 print("Game over!")
                 sys.exit(0)
+            for shot in shots:
+                if (roid.collide(shot)):
+                    shot.kill()
+                    roid.kill()
         pygame.display.flip()
         dt = clock.tick(60) / 1000
 
