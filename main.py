@@ -1,4 +1,5 @@
 from constants import *
+import sys
 import pygame
 from player import Player
 from asteroid import Asteroid
@@ -28,6 +29,10 @@ def main():
         updateable.update(dt)
         for thing in drawable:
             thing.draw(screen)
+        for roid in roids:
+            if (player.collide(roid)):
+                print("Game over!")
+                sys.exit(0)
         pygame.display.flip()
         dt = clock.tick(60) / 1000
 
